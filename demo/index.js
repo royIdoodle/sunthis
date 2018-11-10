@@ -29,18 +29,28 @@ let getUrlParams = () => {
   return search && parseUrlParams(search)
 }
 
-// let params = getUrlParams()
+let params = getUrlParams()
 
 // const urlPrefix = 'http://localhost:3000'
 const urlPrefix = 'https://mmd.wangchong.tech'
 // const id = '5be6b65274d22114877ae5e7'
-const id = '5be6bc422d8fe8041daff8bd'
+const id = params.id || '5be6bc422d8fe8041daff8bd'
 
 jsonp(`${urlPrefix}/share/get/${id}`, {}, function (err, data) {
   console.log(data && data.data && data.data.settings && JSON.parse(data.data.settings))
   if (data && data.data && data.data.settings){
-    let el = document.getElementById("app");
     let settings = JSON.parse(data.data.settings)
+    let el
+    if(settings.style === 'sticky') {
+      el = document.createElement('div')
+      document.body.appendChild(el)
+    } else {
+      let temp = document.getElementsByClassName(".sunthis-inline")[0];
+      if(!temp){
+        el = document.createElement('div')
+        document.body.appendChild(el)
+      }
+    }
     // setTimeout(() => {
       ReactDOM.render((<App
         image={settings.image}

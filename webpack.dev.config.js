@@ -5,6 +5,7 @@ const path = require('path');
 
 // configuration
 var configuration = {
+  mode: 'development',
   entry: './demo/index.js',
   module: {
     rules: [
@@ -29,6 +30,7 @@ var configuration = {
   },
   output: {
     publicPath: '',
+    filename: 'sunthis.js'
   },
   resolve: {
     alias: {'sharethis-reactjs': path.resolve('./src')},
