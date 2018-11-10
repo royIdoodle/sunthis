@@ -24,14 +24,22 @@ let parseUrlParams = (str) => {
 }
 let getUrlParams = () => {
   let href = $('script[src*=sunthis]').attr('src')
-  let search = href.replace(/(.+)\?/, () => '')
-  return parseUrlParams(search)
+  let search = href && href.replace(/(.+)\?/, () => '')
+  return search && parseUrlParams(search)
 }
-console.log(getUrlParams())
 
-jsonp('http://baidu.com?a=d', {data: {a: 1}}, function (data) {
+jsonp('http://baidu.com?a=b', function (data) {
   console.log(data)
 })
+
+// 返回数据定义
+let settings = {
+  style: 'sticky',      // 取值范围： inline 行内显示；sticky 固定位置显示
+  position: 'top',      // 仅在style为sticky时有效，取值范围： top right bottom left
+  networks: ['wechat', 'weibo', 'facebook', 'twitter']          // 取值范围：参考shareThis https://github.com/sharethis-github/sharethis-reactjs#sharing-networks
+}
+
 // render app
 let el = document.getElementById("app");
-ReactDOM.render((<App />), el);
+ReactDOM.render((<App style={settings.style}
+  networks={settings.networks}/>), el);
