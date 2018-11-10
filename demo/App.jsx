@@ -1,8 +1,11 @@
 import React from "react";
-import {InlineReactionButtons} from 'sharethis-reactjs';
-import {InlineShareButtons} from 'sharethis-reactjs';
-import {StickyShareButtons} from 'sharethis-reactjs';
-import {InlineFollowButtons} from 'sharethis-reactjs';
+import './sharethis.js'
+// import {InlineReactionButtons} from 'sharethis-reactjs';
+// import {InlineShareButtons} from 'sharethis-reactjs';
+// import {StickyShareButtons} from 'sharethis-reactjs';
+import {InlineShareButtons} from '../src/index.js';
+import {StickyShareButtons} from '../src/index.js';
+// import {InlineFollowButtons} from 'sharethis-reactjs';
 
 // 默认参数
 const DEFAULT_NETWORKS = ['wechat', 'linkedin', 'messenger', 'twitter']
@@ -25,7 +28,7 @@ class App extends React.Component {
           size: 40,             // the size of each button (INTEGER)
     
           // OPTIONAL PARAMETERS
-          url: 'https://www.sharethis.com', // (defaults to current url)
+          url: this.props.url, // (defaults to current url)
           image: 'https://bit.ly/2CMhCMC',  // (defaults to og:image or twitter:image)
           description: 'custom text',       // (defaults to og:description or twitter:description)
           title: 'custom title',            // (defaults to og:title or twitter:title)
@@ -55,7 +58,7 @@ class App extends React.Component {
             top: 160,             // offset in pixels from the top of the page
       
             // OPTIONAL PARAMETERS
-            url: 'https://www.sharethis.com', // (defaults to current url)
+            url: this.props.url, // (defaults to current url)
             image: 'https://bit.ly/2CMhCMC',  // (defaults to og:image or twitter:image)
             description: 'custom text',       // (defaults to og:description or twitter:description)
             title: 'custom title',            // (defaults to og:title or twitter:title)

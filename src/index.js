@@ -30,18 +30,19 @@ const load = function(component, product) {
   window.onShareThisLoaded = onload;
 
   // load sharethis.js
-  if (document.getElementById('sharethis-js')) {
+//  TODO 核心代码引入
+/*  if (document.getElementById('sharethis-js')) {
     if (window.__sharethis__) {
       window.onShareThisLoaded();
     }
   } else {
     const script = document.createElement("script");
     script.setAttribute('id', 'sharethis-js');
-    script.src = "https://platform-api.sharethis.com/js/sharethis.js" +
+    script.src = "https://zens-pic.oss-cn-shenzhen.aliyuncs.com/static/space/sharethis.js" +
       "?product=" + product + "&source=reactjs";
     script.async = true;
     document.body.appendChild(script);
-  }
+  }*/
 }
 
 // inline follow buttons
