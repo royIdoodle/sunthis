@@ -31,7 +31,7 @@ const load = function(component, product) {
 
   // load sharethis.js
 //  TODO 核心代码引入
-/*  if (document.getElementById('sharethis-js')) {
+  if (document.getElementById('sharethis-js')) {
     if (window.__sharethis__) {
       window.onShareThisLoaded();
     }
@@ -42,7 +42,7 @@ const load = function(component, product) {
       "?product=" + product + "&source=reactjs";
     script.async = true;
     document.body.appendChild(script);
-  }*/
+  }
 }
 
 // inline follow buttons

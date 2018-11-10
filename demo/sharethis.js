@@ -1002,6 +1002,7 @@ __stdos__.cookie = {
   }
 }, function () {
   var t = window.__sharethis__, e = 'undefined' != typeof stlib && null !== stlib && stlib.onscriptload;
+  // TODO 注释掉pview接口调用
   // 'genesis-media' == t.product ? t.send('https://l.sharethis.com/gmedia', {url: t.href}) : e || __stdos__.onscriptload || document.URL.indexOf('edge.sharethis.com') != -1 || (__stdos__.data.init(), __stdos__.data.set('publisher', t.property, 'pageInfo'), __stdos__.data.set('product', t.product, 'pageInfo'), __stdos__.data.set('source', t.source, 'pageInfo'), __stdos__.onscriptload = !0, __stdos__.logger.log('pview'))
 }();
 (function () {

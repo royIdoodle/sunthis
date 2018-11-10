@@ -1,17 +1,19 @@
 import React from "react";
-import './sharethis.js'
 // import {InlineReactionButtons} from 'sharethis-reactjs';
 // import {InlineShareButtons} from 'sharethis-reactjs';
 // import {StickyShareButtons} from 'sharethis-reactjs';
 import {InlineShareButtons} from '../src/index.js';
 import {StickyShareButtons} from '../src/index.js';
+
 // import {InlineFollowButtons} from 'sharethis-reactjs';
 
 // 默认参数
 const DEFAULT_NETWORKS = ['wechat', 'linkedin', 'messenger', 'twitter']
 
 class App extends React.Component {
-
+  componentDidMount () {
+    console.log('WTF!')
+  }
   render () {
     let options = {
       language: this.props.language || 'zh',       // which language to use (see LANGUAGES)
@@ -31,7 +33,7 @@ class App extends React.Component {
       subject: this.props.subject || 'custom email subject',  // (only for email sharing)
       username: this.props.username || 'custom twitter handle' // (only for twitter sharing)
     }
-    
+    console.log(this.props)
     if (this.props.style === 'inline') {
       return (<InlineShareButtons
         config={Object.assign({
