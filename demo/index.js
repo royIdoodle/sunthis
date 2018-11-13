@@ -52,6 +52,7 @@ jsonp(`${urlPrefix}/share/get/${id}`, {}, function (err, data) {
       }
     }
     ReactDOM.render((<App
+      hideDesktop={true}
       image={settings.image}
       title={settings.title}
       description={settings.description}

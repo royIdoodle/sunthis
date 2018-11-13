@@ -11,29 +11,25 @@ import {StickyShareButtons} from '../src/index.js';
 const DEFAULT_NETWORKS = ['wechat', 'linkedin', 'messenger', 'twitter']
 
 class App extends React.Component {
-  componentDidMount () {
-    console.log('WTF!')
-  }
   render () {
     let options = {
       language: this.props.language || 'zh',       // which language to use (see LANGUAGES)
       networks: this.props.networks || DEFAULT_NETWORKS,
-      labels: 'cta',        // button labels (cta, counts, null)
-      padding: 12,          // padding within buttons (INTEGER)
-      radius: 4,            // the corner radius on each button (INTEGER)
-      enabled: true,        // show/hide buttons (true, false)
-      font_size: 16,        // font size for the buttons
-      show_total: false,     // show/hide the total share count (true, false)
+      labels: this.props.labels || 'cta',        // button labels (cta, counts, null)
+      padding: this.props.padding || 12,          // padding within buttons (INTEGER)
+      radius: this.props.radius || 4,            // the corner radius on each button (INTEGER)
+      enabled: this.props.hasOwnProperty('enabled')?this.props.enabled:true,        // show/hide buttons (true, false)
+      font_size: this.props.fontSize || 16,        // font size for the buttons
+      show_total: this.showTotal || false,     // show/hide the total share count (true, false)
 
       image: this.props.image || 'https://bit.ly/2CMhCMC',  // (defaults to og:image or twitter:image)
-      description: 'custom text',       // (defaults to og:description or twitter:description)
+      description: this.props.description || 'custom text',       // (defaults to og:description or twitter:description)
       url: this.props.url, // (defaults to current url)
       title: this.props.title || 'custom title',            // (defaults to og:title or twitter:title)
       message: this.props.message || 'custom email text',     // (only for email sharing)
       subject: this.props.subject || 'custom email subject',  // (only for email sharing)
       username: this.props.username || 'custom twitter handle' // (only for twitter sharing)
     }
-    console.log(this.props)
     if (this.props.style === 'inline') {
       return (<InlineShareButtons
         config={Object.assign({
