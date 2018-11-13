@@ -20,7 +20,7 @@ class App extends React.Component {
       radius: this.props.radius || 4,            // the corner radius on each button (INTEGER)
       enabled: this.props.hasOwnProperty('enabled')?this.props.enabled:true,        // show/hide buttons (true, false)
       font_size: this.props.fontSize || 16,        // font size for the buttons
-      show_total: this.showTotal || false,     // show/hide the total share count (true, false)
+      show_total: this.props.showTotal || false,     // show/hide the total share count (true, false)
 
       image: this.props.image || 'https://bit.ly/2CMhCMC',  // (defaults to og:image or twitter:image)
       description: this.props.description || 'custom text',       // (defaults to og:description or twitter:description)
@@ -42,10 +42,10 @@ class App extends React.Component {
         <StickyShareButtons
           config={Object.assign({
             alignment: this.props.alignment || 'right',    // alignment of buttons (left, right)
-            hide_desktop: this.props.hideDestop || false,  // hide buttons on desktop (true, false)
+            hide_desktop: this.props.hideDesktop || false,  // hide buttons on desktop (true, false)
             min_count: this.props.minCount || 0,         // hide react counts less than min_count (INTEGER)
-            show_mobile: this.props.showMobile || true,    // show/hide the buttons on mobile (true, false)
-            show_toggle: this.props.showToggle || true,    // show/hide the toggle buttons (true, false)
+            show_mobile: this.props.hasOwnProperty('showMobile')?this.props.showMobile: true,    // show/hide the buttons on mobile (true, false)
+            show_toggle: this.props.hasOwnProperty('showToggle')?this.props.showToggle: true,    // show/hide the toggle buttons (true, false)
             size: this.props.size || 48,             // the size of each button (INTEGER)
             top: this.props.top || 160,             // offset in pixels from the top of the page
           }, options)}

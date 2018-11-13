@@ -60,7 +60,7 @@ jsonp(`${urlPrefix}/share/get/${id}`, {}, function (err, data) {
       fontSize={settings.fontSize}
       showTotal={settings.showTotal}
       size={settings.size}
-      hideDestop={settings.hideDestop}
+      hideDestop={settings.hideDesktop}
       minCount={settings.minCount}
       showMobile={settings.showMobile}
       showToggle={settings.showToggle}
@@ -68,7 +68,6 @@ jsonp(`${urlPrefix}/share/get/${id}`, {}, function (err, data) {
       subject={settings.subject}
       username={settings.username}
       top={settings.top}
-      hideDesktop={true}
       image={settings.image}
       title={settings.title}
       description={settings.description}
