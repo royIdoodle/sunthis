@@ -52,6 +52,22 @@ jsonp(`${urlPrefix}/share/get/${id}`, {}, function (err, data) {
       }
     }
     ReactDOM.render((<App
+      language={settings.language}
+      labels={settings.labels}
+      padding={settings.padding}
+      radius={settings.radius}
+      enabled={settings.enabled}
+      fontSize={settings.fontSize}
+      showTotal={settings.showTotal}
+      size={settings.size}
+      hideDestop={settings.hideDestop}
+      minCount={settings.minCount}
+      showMobile={settings.showMobile}
+      showToggle={settings.showToggle}
+      message={settings.message}
+      subject={settings.subject}
+      username={settings.username}
+      top={settings.top}
       hideDesktop={true}
       image={settings.image}
       title={settings.title}

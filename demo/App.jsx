@@ -15,7 +15,7 @@ class App extends React.Component {
     let options = {
       language: this.props.language || 'zh',       // which language to use (see LANGUAGES)
       networks: this.props.networks || DEFAULT_NETWORKS,
-      labels: this.props.labels || 'cta',        // button labels (cta, counts, null)
+      labels: this.props.labels || null,        // button labels (cta, counts, null)
       padding: this.props.padding || 12,          // padding within buttons (INTEGER)
       radius: this.props.radius || 4,            // the corner radius on each button (INTEGER)
       enabled: this.props.hasOwnProperty('enabled')?this.props.enabled:true,        // show/hide buttons (true, false)
@@ -34,7 +34,7 @@ class App extends React.Component {
       return (<InlineShareButtons
         config={Object.assign({
           alignment: this.props.alignment || 'center',  // alignment of buttons (left, center, right)
-          size: 40,             // the size of each button (INTEGER)
+          size: this.props.size || 40,             // the size of each button (INTEGER)
         }, options)}
       />)
     } else {
@@ -42,12 +42,12 @@ class App extends React.Component {
         <StickyShareButtons
           config={Object.assign({
             alignment: this.props.alignment || 'right',    // alignment of buttons (left, right)
-            hide_desktop: false,  // hide buttons on desktop (true, false)
-            min_count: 0,         // hide react counts less than min_count (INTEGER)
-            show_mobile: true,    // show/hide the buttons on mobile (true, false)
-            show_toggle: true,    // show/hide the toggle buttons (true, false)
-            size: 48,             // the size of each button (INTEGER)
-            top: 160,             // offset in pixels from the top of the page
+            hide_desktop: this.props.hideDestop || false,  // hide buttons on desktop (true, false)
+            min_count: this.props.minCount || 0,         // hide react counts less than min_count (INTEGER)
+            show_mobile: this.props.showMobile || true,    // show/hide the buttons on mobile (true, false)
+            show_toggle: this.props.showToggle || true,    // show/hide the toggle buttons (true, false)
+            size: this.props.size || 48,             // the size of each button (INTEGER)
+            top: this.props.top || 160,             // offset in pixels from the top of the page
           }, options)}
         />
       )
