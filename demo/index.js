@@ -60,7 +60,7 @@ jsonp(`${urlPrefix}/share/get/${id}`, {}, function (err, data) {
       fontSize={settings.fontSize}
       showTotal={settings.showTotal}
       size={settings.size}
-      hideDestop={settings.hideDesktop}
+      hideDesktop={settings.hideDesktop}
       minCount={settings.minCount}
       showMobile={settings.showMobile}
       showToggle={settings.showToggle}
