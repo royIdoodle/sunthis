@@ -35,11 +35,13 @@ const urlPrefix = 'https://mmd.wangchong.tech'
 // const id = '5be6b65274d22114877ae5e7'
 const id = params.id || '5be6bc422d8fe8041daff8bd'
 
-jsonp(`${urlPrefix}/share/get/${id}`, {}, function (err, data) {
-  if (data && data.data && data.data.settings){
-    let settings = JSON.parse(data.data.settings)
+
+jsonp(`http://www.sunthis.com/api/${id}.js`, {prefix: '__jq'}, function (err, data) {
+// jsonp(`${urlPrefix}/share/get/${id}`, {}, function (err, data) {
+  if (data){
+    let settings = data
     let el
-    if(settings.style === 'sticky') {
+    if(data.style === 'sticky') {
       el = document.createElement('div')
       document.body.appendChild(el)
     } else {
