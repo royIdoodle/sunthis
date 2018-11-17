@@ -33,51 +33,84 @@ let params = getUrlParams()
 // const urlPrefix = 'http://localhost:3000'
 const urlPrefix = 'https://mmd.wangchong.tech'
 // const id = '5be6b65274d22114877ae5e7'
-const id = params.id || '5be6bc422d8fe8041daff8bd'
+const id = params.id || 'default'
 
+const DEFAULT = {
+  "style": "sticky",
+  "image": "",
+  "alignment": "right",
+  "alignmentSticky": "sticky",
+  "title": "",
+  "description": "",
+  "networks": [
+    "wechat",
+    "weibo",
+    "facebook",
+    "twitter"
+  ],
+  "url": "",
+  "language": "en",
+  "labels": "cta",
+  "padding": 12,
+  "radius": "12",
+  "enabled": true,
+  "fontSize": 16,
+  "showTotal": false,
+  "size": 46,
+  "hideDesktop": false,
+  "minCount": 0,
+  "showMobile": true,
+  "showToggle": true,
+  "top": 160
+}
 
-jsonp(`http://www.sunthis.com/api/${id}.js`, {prefix: '__jq'}, function (err, data) {
-// jsonp(`${urlPrefix}/share/get/${id}`, {}, function (err, data) {
-  if (data){
-    let settings = data
-    let el
-    if(data.style === 'sticky') {
+jsonp(`http://www.sunthis.com/api/${id}.js`, {
+  prefix: '__jq',
+  timeout: 2000
+}, function (err, data) {
+  let el
+  let settings
+  if (err) {
+    settings = DEFAULT
+  } else if (data){
+    settings = data
+  }
+  if(settings.style === 'sticky') {
+    el = document.createElement('div')
+    document.body.appendChild(el)
+  } else {
+    let temp = document.getElementsByClassName("sunthis")[0];
+    if(!temp){
       el = document.createElement('div')
       document.body.appendChild(el)
     } else {
-      let temp = document.getElementsByClassName("sunthis")[0];
-      if(!temp){
-        el = document.createElement('div')
-        document.body.appendChild(el)
-      } else {
-        el = temp
-      }
+      el = temp
     }
-    ReactDOM.render((<App
-      language={settings.language}
-      labels={settings.labels}
-      padding={settings.padding}
-      radius={settings.radius}
-      enabled={settings.enabled}
-      fontSize={settings.fontSize}
-      showTotal={settings.showTotal}
-      size={settings.size}
-      hideDesktop={settings.hideDesktop}
-      minCount={settings.minCount}
-      showMobile={settings.showMobile}
-      showToggle={settings.showToggle}
-      message={settings.message}
-      subject={settings.subject}
-      username={settings.username}
-      top={settings.top}
-      image={settings.image}
-      title={settings.title}
-      description={settings.description}
-      url={settings.url || location.href}
-      style={settings.style}
-      alignment={settings.alignment}
-      networks={settings.networks}/>), el);
   }
+  ReactDOM.render((<App
+    language={settings.language}
+    labels={settings.labels}
+    padding={settings.padding}
+    radius={settings.radius}
+    enabled={settings.enabled}
+    fontSize={settings.fontSize}
+    showTotal={settings.showTotal}
+    size={settings.size}
+    hideDesktop={settings.hideDesktop}
+    minCount={settings.minCount}
+    showMobile={settings.showMobile}
+    showToggle={settings.showToggle}
+    message={settings.message}
+    subject={settings.subject}
+    username={settings.username}
+    top={settings.top}
+    image={settings.image}
+    title={settings.title}
+    description={settings.description}
+    url={settings.url || location.href}
+    style={settings.style}
+    alignment={settings.alignment}
+    networks={settings.networks}/>), el);
 })
 
 // render app
