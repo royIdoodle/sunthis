@@ -4,8 +4,11 @@ import App from "./App";
 import React from "react";
 import ReactDOM from "react-dom";
 import jsonp from "jsonp";
-import $ from "jquery"
+// import $ from "jquery"
 // import './sharethis.js'
+var $ = function (selector) {
+  return document.querySelector(selector)
+}
 
 let parseUrlParams = (str) => {
   let ret = {}
@@ -23,7 +26,12 @@ let parseUrlParams = (str) => {
 }
 
 let getUrlParams = () => {
-  let href = $('script[src*="sunthis.js"]').attr('src')
+  let dom = document.querySelector('script[src*="sunthis.js"]')[0]
+  let href = ''
+  if (dom) {
+    href = dom.getAttribute('src')
+  }
+  // let href = $('script[src*="sunthis.js"]').attr('src')
   let search = href && href.replace(/(.+)\?/, () => '')
   return search && parseUrlParams(search)
 }
