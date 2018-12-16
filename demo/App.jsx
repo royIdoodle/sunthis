@@ -1,11 +1,7 @@
 import React from "react";
-// import {InlineReactionButtons} from 'sharethis-reactjs';
-// import {InlineShareButtons} from 'sharethis-reactjs';
-// import {StickyShareButtons} from 'sharethis-reactjs';
 import {InlineShareButtons} from '../src/index.js';
 import {StickyShareButtons} from '../src/index.js';
 
-// import {InlineFollowButtons} from 'sharethis-reactjs';
 
 // 默认参数
 const DEFAULT_NETWORKS = ['wechat', 'linkedin', 'messenger', 'twitter']

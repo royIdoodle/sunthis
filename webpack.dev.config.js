@@ -1,7 +1,9 @@
 
 // dependencies
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const path = require('path');
+const webpack = require('webpack');
 
 // configuration
 var configuration = {
@@ -37,9 +39,23 @@ var configuration = {
     extensions: ['.js', '.jsx']
   },
   plugins: [
+    new webpack.DefinePlugin({ // <-- 减少 React 大小的关键
+      'process.env.NODE_ENV': JSON.stringify('production')
+    }),
     new HtmlWebPackPlugin({
       template: "./demo/index.html",
       filename: "index.html"
+    }),
+    // new webpack.optimize.DedupePlugin(), //删除类似的重复代码
+    new webpack.optimize.AggressiveMergingPlugin(), //合并块
+    new UglifyJsPlugin({
+      test: /\.js(\?.*)?$/i,
+      uglifyOptions: {
+        mangle: false,
+        output: {
+          beautify: true,
+        },
+      }
     })
   ],
   devServer: {
