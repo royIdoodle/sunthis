@@ -38,7 +38,7 @@ const load = function(component, product) {
   } else {
     const script = document.createElement("script");
     script.setAttribute('id', 'sharethis-js');
-    script.src = "http://www.sunthis.com/code/core.js" +
+    script.src = "https://zens-pic.oss-cn-shenzhen.aliyuncs.com/static/space/sharethis.js" +
       "?product=" + product + "&source=reactjs";
     script.async = true;
     document.body.appendChild(script);
