@@ -1,11 +1,90 @@
 
 // dependencies
+import core from "./sharethis.ugly"
 import React from "react";
 import ReactDOM from "react-dom";
 import jsonp from "jsonp";
 
-import {InlineShareButtons} from '../src/index.js';
-import {StickyShareButtons} from '../src/index.js';
+const load = function(component, product) {
+  // load config
+  let config = component.props.config || {enabled: true};
+  config = JSON.parse(JSON.stringify(config));
+  
+  // load buttons
+  const _onShareThisLoaded = window.onShareThisLoaded;
+  let onload = () => {
+    if (!onload.complete) {
+      if (!config.id) {
+        const id = 'sharethis-' + Date.now();
+        config.id = id;
+      }
+      if (component.buttons.current) {
+        component.buttons.current.id = config.id;
+        window.__sharethis__.load(product, config);
+      }
+      if (_onShareThisLoaded) {
+        _onShareThisLoaded();
+      }
+      onload.complete = true;
+    }
+  };
+  window.onShareThisLoaded = onload;
+  
+  // load sharethis.js
+//  TODO 核心代码引入
+  window.onShareThisLoaded();
+  return
+  if (document.getElementById('sharethis-js')) {
+    if (window.__sharethis__) {
+      window.onShareThisLoaded();
+    }
+  } else {
+    const script = document.createElement("script");
+    script.setAttribute('id', 'sharethis-js');
+    script.src = "https://zens-pic.oss-cn-shenzhen.aliyuncs.com/static/space/sharethis.test.js" +
+      "?product=" + product + "&source=reactjs";
+    script.async = true;
+    document.body.appendChild(script);
+  }
+}
+
+class InlineShareButtons extends React.Component {
+  constructor(props) {
+    super(props);
+    this.buttons = React.createRef();
+  }
+  
+  componentDidMount() {
+    load(this, 'inline-share-buttons');
+  }
+  
+  render () {
+    return (
+      <div id={'xxxxxxx'}>
+        <div ref={this.buttons} />
+      </div>
+    );
+  }
+};
+
+class StickyShareButtons extends React.Component {
+  constructor(props) {
+    super(props);
+    this.buttons = React.createRef();
+  }
+  
+  componentDidMount() {
+    load(this, 'sticky-share-buttons');
+  }
+  
+  render () {
+    return (
+      <div id={'yyyyyyy'}>
+        <div ref={this.buttons} />
+      </div>
+    );
+  }
+};
 
 
 // 默认参数
@@ -85,9 +164,6 @@ let getUrlParams = () => {
 
 let params = getUrlParams()
 
-// const urlPrefix = 'http://localhost:3000'
-const urlPrefix = 'https://mmd.wangchong.tech'
-// const id = '5be6b65274d22114877ae5e7'
 const id = params.id || 'default'
 
 const DEFAULT = {
