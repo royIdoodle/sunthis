@@ -1,5 +1,8 @@
 {
   "name": "sunthis",
+  "sideEffects": [
+    "./demo/sharethis.js"
+  ],
   "version": "0.0.1",
   "description": "sun this ",
   "main": "dist/index.js",

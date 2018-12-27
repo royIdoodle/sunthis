@@ -1,10 +1,10 @@
 
 // dependencies
-import core from "./sharethis.ugly"
+import core from "./sharethis.js"
 import React from "react";
+// import {Component, createRef} from 'react';
 import {render} from "react-dom";
 import jsonp from "jsonp";
-
 const load = function(component, product) {
   // load config
   let config = component.props.config || {enabled: true};
@@ -15,8 +15,7 @@ const load = function(component, product) {
   let onload = () => {
     if (!onload.complete) {
       if (!config.id) {
-        const id = 'sharethis-' + Date.now();
-        config.id = id;
+        config.id = 'sharethis-' + Date.now();
       }
       if (component.buttons.current) {
         component.buttons.current.id = config.id;
@@ -42,14 +41,12 @@ class InlineShareButtons extends React.Component {
   }
   
   componentDidMount() {
-    // load(this, 'inline-share-buttons');
+    load(this, 'inline-share-buttons');
   }
   
   render () {
     return (
-      <div id={'xxxxxxx'}>
-        <div ref={this.buttons} />
-      </div>
+      <div ref={this.buttons} />
     );
   }
 };
@@ -57,7 +54,7 @@ class InlineShareButtons extends React.Component {
 class StickyShareButtons extends React.Component {
   constructor(props) {
     super(props);
-    this.buttons = createRef();
+    this.buttons = React.createRef();
   }
   
   componentDidMount() {
@@ -66,16 +63,14 @@ class StickyShareButtons extends React.Component {
   
   render () {
     return (
-      <div id={'yyyyyyy'}>
-        <div ref={this.buttons} />
-      </div>
+      <div ref={this.buttons} />
     );
   }
 };
 
 
 // 默认参数
-const DEFAULT_NETWORKS = ['wechat', 'linkedin', 'messenger', 'twitter']
+const DEFAULT_NETWORKS = ['wechat', 'linkedin', 'messenger', 'twitter', 'sms']
 
 class App extends React.Component {
   render () {
@@ -154,7 +149,7 @@ let params = getUrlParams()
 const id = params.id || 'default'
 
 const DEFAULT = {
-  "style": "sticky",
+  "style": "inline",
   "image": "",
   "alignment": "right",
   "alignmentSticky": "sticky",
@@ -164,7 +159,8 @@ const DEFAULT = {
     "wechat",
     "weibo",
     "facebook",
-    "twitter"
+    "twitter",
+    "sharethis"
   ],
   "url": "",
   "language": "en",
@@ -190,10 +186,6 @@ jsonp(`http://www.sunthis.com/api/${id}.js`, {
   let settings
   if (err) {
     settings = DEFAULT
-    console.log('>>>>>')
-    // settings.id = 'sharethis-' + Date.now();
-    // window.__sharethis__.load('sticky-share-buttons', settings);
-    console.log('>>>>>')
   } else if (data){
     settings = data
   }

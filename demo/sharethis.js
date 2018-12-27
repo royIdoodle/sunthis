@@ -312,16 +312,7 @@ Array.prototype.indexOf || (Array.prototype.indexOf = function (r, t) {
     return n ? (o = new Date, o.setTime(o.getTime() + 24 * n * 60 * 60 * 1e3), r = '; expires=' + o.toGMTString()) : r = '', document.cookie = e + '=' + t + r + '; path=/'
   }, e.share = function (t) {
     var n, o, r, s, i, a, l, u, c, d, h, p, m, f, g, v;
-    if (null == t && (t = {}), n = t.count_url, p = t.subject, h = t.share_url, f = t.url, o = t.description, s = t.image, l = t.message, u = t.network, m = t.title, g = t.username, n = n || f || e.href, null == o && (o = e.getDescription()), null == s && (s = e.getImage()), h = h || f || e.href, null == m && (m = e.getTitle()), null == f && (f = n), 'sharethis' === u) return e.load('share-all', {
-      count_url: n,
-      description: o,
-      image: s,
-      share_url: h,
-      title: m,
-      url: f,
-      username: g
-    });
-    if (e.incLocalStorageShares(u, n), e.logGoogleAnalyticsEvent('ShareThis', u, n), e.log({
+    if (null == t && (t = {}), n = t.count_url, p = t.subject, h = t.share_url, f = t.url, o = t.description, s = t.image, l = t.message, u = t.network, m = t.title, g = t.username, n = n || f || e.href, null == o && (o = e.getDescription()), null == s && (s = e.getImage()), h = h || f || e.href, null == m && (m = e.getTitle()), null == f && (f = n))     if (e.incLocalStorageShares(u, n), e.logGoogleAnalyticsEvent('ShareThis', u, n), e.log({
       destinations: u,
       event: 'share',
       title: m,
@@ -483,7 +474,7 @@ Array.prototype.indexOf || (Array.prototype.indexOf = function (r, t) {
   }
 }).call(this);
 (function () {
-  window.__sharethis__.PRODUCTS = ['custom-share-buttons', 'ecommerce', 'email-list-builder', 'ga', 'gdpr-compliance-tool', 'genesis-media', 'google-analytics', 'image-share-buttons', 'image-share-buttons-wp', 'inline-follow-buttons', 'inline-reaction-buttons', 'inline-share-buttons', 'inline-share-buttons-wp', 'privy-share-buttons', 'promo-bar', 'reviews', 'social-ab', 'sop', 'sop-wordpress-plugin', 'sticky-share-buttons', 'sticky-share-buttons-wp', 'top-content', 'unknown', 'viral-notifications']
+  window.__sharethis__.PRODUCTS = ['ga', 'gdpr-compliance-tool', 'genesis-media', 'inline-follow-buttons', 'inline-share-buttons', 'inline-share-buttons-wp', 'sop', 'sticky-share-buttons', 'sticky-share-buttons-wp', 'unknown']
 }).call(this);
 (function () {
   var e;
@@ -708,41 +699,6 @@ Array.prototype.indexOf || (Array.prototype.indexOf = function (r, t) {
 (function () {
   var e;
   e = window.__sharethis__, e.networks = ['blogger', 'delicious', 'digg', 'email', 'facebook', 'flipboard', 'googleplus', 'linkedin', 'livejournal', 'mailru', 'meneame', 'messenger', 'odnoklassniki', 'pinterest', 'print', 'reddit', 'sharethis', 'sms', 'tumblr', 'twitter', 'vk', 'wechat', 'weibo', 'whatsapp', 'xing']
-}).call(this);
-(function () {
-  var n;
-  n = window.__sharethis__, n.loader['share-all'] = function (t) {
-    var e, i, o, s, r, a, l, d, p, c, h, u, g, b, x, m, f, w, v, k, y, R, _, O, I, S, E;
-    for (null == t && (t = {}), l = t.count_url, _ = t.share_url, S = t.url, p = t.description, g = t.image, w = t.message, v = t.network, I = t.title, E = t.username, y = n.newElement(), r = y.$el, u = y.id, n.addClass(r, 'st-hidden'), a = 'body.st-body-no-scroll {\n  bottom: 0;\n  left: 0;\n  overflow: hidden;\n  position: fixed;\n  right: 0;\n  top: 0;\n}\n#' + u + ' {\n  ' + n.FONT_FAMILY + '\n  ' + n.TRANSITION() + '\n  height: 100%;\n  left: 0;\n  opacity: 1;\n  position: fixed;\n  top: 0;\n  width: 100%;\n  z-index: 99999;\n}\n#' + u + '.st-hidden {\n  opacity: 0;\n  top: 100%;\n}\n#' + u + ' .st-backdrop {\n  background: rgba(0, 0, 0, 0.8);\n  bottom: 0;\n  left: 0;\n  position: absolute;\n  right: 0;\n  top: 0;\n  z-index: 10;\n}\n#' + u + ' .st-btns {\n  bottom: 56px;\n  left: 0;\n  margin: 100px auto 0;\n  max-width: 90%;\n  position: absolute;\n  right: 0;\n  text-align: center;\n  top: 10px;\n  width: 500px;\n  z-index: 20;\n  overflow-y: auto;\n}\n#' + u + ' .st-logo {\n  background: #4c4c4c;\n  bottom: 0;\n  cursor: pointer;\n  padding: 20px;\n  position: absolute;\n  text-align: center;\n  width: 100%;\n  z-index: 30;\n}\n#' + u + ' .st-close {\n  ' + n.BORDER_RADIUS(28) + '\n  ' + n.BORDER_BOX + '\n  background: #999;\n  bottom: 28px;\n  color: #fff;\n  cursor: pointer;\n  font-size: 36px;\n  height: 56px;\n  line-height: 28px;\n  padding: 10px;\n  position: absolute;\n  right: 14px;\n  width: 56px;\n  z-index: 40;\n}\n#' + u + ' .st-btn {\n  ' + n.BORDER_RADIUS(4) + '\n  ' + n.BORDER_BOX + '\n  ' + n.TRANSITION() + '\n  color: white;\n  cursor: pointer;\n  display: inline-block;\n  font-size: 12px;\n  font-weight: 400;\n  height: 48px;\n  line-height: 30px;\n  margin: 4px;\n  opacity: 1;\n  overflow: hidden;\n  padding: 8px 12px;\n  position: relative;\n  text-align: left;\n  top: 0;\n  vertical-align: top;\n  width: 148px;\n}\n#' + u + ' .st-btn::before {\n  ' + n.BORDER_RADIUS(4) + '\n  ' + n.TRANSITION() + '\n  background: #fff;\n  content: \'\';\n  height: 100%;\n  left: 0;\n  opacity: 0;\n  position: absolute;\n  top: 0;\n  width: 100%;\n}\n#' + u + ' .st-btn:hover::before {\n  opacity: .2;\n}\n#' + u + ' .st-btn > svg {\n  display: inline-block;\n  height: 20px;\n  margin-top: 6px;\n  vertical-align: top;\n  width: 20px;\n}\n#' + u + ' .st-btn > img {\n  display: inline-block;\n  height: 20px;\n  margin-top: 6px;\n  vertical-align: top;\n  width: 20px;\n}\n#' + u + ' .st-btn > span {\n  display: inline-block;\n  letter-spacing: 0.5px;\n  text-align: center;\n  vertical-align: top;\n  width: 96px;\n}\n@media(max-width: 1200px) {\n  #' + u + ' .st-btns {\n    margin-top: 50px;\n  }\n}\n@media(max-width: 800px) {\n  #' + u + ' .st-btns {\n    margin: 0 auto;\n    max-width: 100%;\n    padding: 32px 10px 50px;\n  }\n  #' + u + ' .st-btn {\n    width: 130px;\n  }\n  #' + u + ' .st-btn > span {\n    width: 74px;\n  }\n}', k = function () {
-      var t, e, i, o;
-      for (i = n.networks, o = [], t = 0, e = i.length; t < e; t++) v = i[t], o.push('#' + u + ' .st-btn[data-network=\'' + v + '\'] {\n  background-color: ' + n.COLORS[v] + ';\n}');
-      return o
-    }().join('\n'), d = a, d += k, n.css(d), c = '<div class=\'st-backdrop\'></div>', c += '<div class=\'st-btns\'>', R = n.networks, h = 0, x = R.length; h < x; h++) v = R[h], 'sharethis' !== v && (n.mobile || 'sms' !== v) && (c += '<div class=\'st-btn\' data-network=\'' + v + '\'>\n  ' + n.ICONS[v] + '\n  <span>' + v + '</span>\n</div>');
-    for (c += '</div>', O = 'https://s3.amazonaws.com/sharethis-socialab-prod/share-this-logo%402x.png', f = 'https://sharethis.com/platform/share-buttons?' + n.qs({
-      utm_source: 'share-buttons',
-      utm_medium: 'referral',
-      utm_campaign: 'sharethis-button-referral'
-    }), c += '<div class="st-logo">\n  <a href="' + f + '" target="_blank">\n    <img height="16" width="96" src="' + O + '">\n  </a>\n</div>', c += '<div class="st-close">\n  ' + n.ICONS.close + '\n</div>', r.innerHTML = c, e = r.querySelector('.st-backdrop'), o = r.querySelectorAll('.st-btn'), s = r.querySelector('.st-close'), n.addEventListener(e, 'click', function () {
-      return n.close(r)
-    }), n.addEventListener(s, 'click', function () {
-      return n.close(r)
-    }), n.addEventListener(document, 'keydown', function (t) {
-      if (n.isEsc(t)) return n.close(r)
-    }), b = 0, m = o.length; b < m; b++) i = o[b], n.addEventListener(i, 'click', function () {
-      return n.close(r), n.share({
-        description: p,
-        image: g,
-        network: this.getAttribute('data-network'),
-        share_url: _,
-        title: I,
-        url: S,
-        username: E
-      })
-    });
-    return setTimeout(function () {
-      return n.removeClass(r, 'st-hidden'), n.addClass(document.body, 'st-body-no-scroll')
-    }, 10)
-  }
 }).call(this);
 (function () {
   var n;
@@ -1005,84 +961,6 @@ __stdos__.cookie = {
   'genesis-media' == t.product ? t.send('https://l.sharethis.com/gmedia', {url: t.href}) : e || __stdos__.onscriptload || document.URL.indexOf('edge.sharethis.com') != -1 || (__stdos__.data.init(), __stdos__.data.set('publisher', t.property, 'pageInfo'), __stdos__.data.set('product', t.product, 'pageInfo'), __stdos__.data.set('source', t.source, 'pageInfo'), __stdos__.onscriptload = !0, __stdos__.logger.log('pview'))
 }();
 (function () {
-  var t;
-  t = window.__sharethis__, t.loader['custom-share-buttons'] = function () {
-    var e, r, a, u, i, s, n;
-    if (r = document.querySelectorAll('.st-custom-button'), 0 !== r.length) {
-      for (a = 0, i = r.length; a < i; a++) e = r[a], t.addEventListener(e, 'click', function () {
-        return t.share({
-          count_url: this.getAttribute('data-count-url'),
-          description: this.getAttribute('data-description'),
-          subject: this.getAttribute('data-email-subject'),
-          image: this.getAttribute('data-image'),
-          message: this.getAttribute('data-message'),
-          network: this.getAttribute('data-network'),
-          share_url: this.getAttribute('data-short-url'),
-          title: this.getAttribute('data-title'),
-          url: this.getAttribute('data-url'),
-          username: this.getAttribute('data-username')
-        })
-      });
-      for (n = [], u = 0, s = r.length; u < s; u++) e = r[u], n.push(function (e) {
-        var r, a;
-        return r = e.getAttribute('data-network'), a = e.getAttribute('data-url') || t.href, t.loadCounts({url: a}, function (a) {
-          var u, i, s, n;
-          return i = a[r] || {}, u = i.label, n = i.value, u && n > 0 ? (null != (s = e.querySelector('.count')) && (s.innerHTML = u), t.removeClass(e, 'st-hide-label')) : t.addClass(e, 'st-hide-label')
-        })
-      }(e));
-      return n
-    }
-  }
-}).call(this);
-(function () {
-  var n;
-  n = window.__sharethis__, n.loader['email-list-builder'] = function (e) {
-    var t, i, o, l, r, s, d, a, c, u, p, m, f, b, h, g, v, x, _, y, E, R, S, k, O, T, w, B;
-    if (null == e && (e = {}), e.enabled && (u = e.color, c = e.button_label, h = e.headline, _ = e.message, S = e.property, B = e.thanks, a = e.behavior, m = e.container, b = e.fade_in, y = e.onClose, R = e.onSubmit, 'show' === a || !n.storage.get('st_email_list_builder_email_collected'))) return null == u && (u = n.COLORS.sharethis), null == a && (a = 'smart'), null == c && (c = 'Join'), null == b && (b = !0), null == h && (h = 'SUBSCRIBE VIA EMAIL'), null == _ && (_ = 'Subscribe to out mailing list to get updates!'), null == S && (S = n.property), null == B && (B = 'Thank you for subscribing!'), null == m && (m = document.body), 'string' == typeof m && (m = document.getElementById(m)), k = n.newElement(null), l = k.$el, x = k.id, n.addClass(l, 'st-email-list-builder'), b && n.addClass(l, 'st-hidden'), p = '#' + x + ' {\n  ' + n.BORDER_BOX + '\n  ' + n.TRANSITION('opacity') + '\n  bottom: 0;\n  display: block;\n  left: 0;\n  opacity: 1;\n  position: fixed;\n  right: 0;\n  text-align: center;\n  top: 0;\n  z-index: 9999;\n}\n#' + x + '.st-hidden {\n  opacity: 0;\n}\n#' + x + ' .st-backdrop {\n  background: rgba(0, 0, 0, 0.8);\n  bottom: 0;\n  left: 0;\n  position: absolute;\n  right: 0;\n  top: 0;\n  z-index: 10;\n}\n#' + x + ' .st-modal {\n  ' + n.BORDER_RADIUS(6) + '\n  ' + n.BORDER_BOX + '\n  ' + n.TRANSITION('opacity') + '\n  background: #fff;\n  border-top: 10px solid ' + u + ';\n  bottom: 0;\n  color: #333;\n  margin: 100px auto 0;\n  max-width: 90%;\n  opacity: 1;\n  padding: 20px 40px;\n  position: relative;\n  width: 600px;\n  z-index: 20;\n}\n#' + x + ' .st-modal.st-hidden {\n  opacity: 0;\n}\n#' + x + ' .st-headline {\n  margin-bottom: 5px;\n  font-size: 32px;\n  line-height: 38px;\n}\n#' + x + ' .st-message {\n  margin-bottom: 25px;\n  font-size: 18px;\n  line-height: 24px;\n}\n#' + x + ' .st-error {\n  color: red;\n  font-size: 14px;\n  line-height: 26px;\n}\n#' + x + ' input {\n  ' + n.BORDER_BOX + '\n  ' + n.BORDER_RADIUS(4) + '\n  background-color: #fff;\n  border: 1px solid #aeaeae;\n  color: #333;\n  display: block;\n  font-size: 15px;\n  height: 48px;\n  margin-bottom: 25px;\n  padding: 12px;\n  text-align: center;\n  width: 100%;\n}\n#' + x + ' .st-btn {\n  ' + n.BORDER_BOX + '\n  ' + n.BORDER_RADIUS(4) + '\n  ' + n.TRANSITION() + '\n  background-color: #fff;\n  border: 0;\n  background: ' + u + ';\n  color: #fff;\n  cursor: pointer;\n  display: inline-block;\n  font-size: 18px;\n  height: 48px;\n  line-height: 48px;\n  min-width: 120px;\n  padding: 0 20px;\n}\n#' + x + ' .st-close {\n  ' + n.BOX_SHADOW('0 0 20px black') + '\n  ' + n.BORDER_RADIUS(18) + '\n  background: #555;\n  border: 3px solid white;\n  cursor: pointer;\n  font-size: 24px;\n  height: 36px;\n  padding-top: 1px;\n  position: absolute;\n  right: -15px;\n  top: -23px;\n  width: 36px;\n}', g = '#' + x + ' .st-btn:hover {\n}', f = p, n.mobile || (f += g), n.css(f), v = '<div class="st-backdrop"></div>\n<div class="st-modal">\n  <div class="st-headline">' + h + '</div>\n  <div class="st-message">' + _ + '</div>\n  <div class="st-error"></div>\n  <input class="st-email" type="text" placeholder="you@domain.com" />\n  <div class="st-btn">' + c + '</div>\n  <div class="st-close">\n    ' + n.ICONS.close + '\n  </div>\n</div>', l.innerHTML = v, t = l.querySelector('.st-backdrop'), i = l.querySelector('.st-btn'), o = l.querySelector('.st-close'), r = l.querySelector('.st-error'), s = l.querySelector('input'), d = l.querySelector('.st-modal'), w = function () {
-      var e;
-      if ('show' !== a) {
-        if (e = n.storage.get('st_email_list_builder_seen_at'), Date.now() - e < n.WEEK) return;
-        n.storage.set('st_email_list_builder_seen_at', Date.now())
-      }
-      return null != m && m.appendChild(l), setTimeout(function () {
-        return n.removeClass(l, 'st-hidden')
-      }, 10)
-    }, n.addEventListener(t, 'click', function () {
-      return n.close(l), 'function' == typeof y ? y() : void 0
-    }), n.addEventListener(o, 'click', function () {
-      return n.close(l), 'function' == typeof y ? y() : void 0
-    }), n.addEventListener(s, 'keydown', function (e) {
-      return n.isEnter(e) && T(), r.innerHTML = ''
-    }), n.addEventListener(i, 'click', function () {
-      return T()
-    }), n.addEventListener(document, 'keydown', function (e) {
-      if (n.isEsc(e)) return n.close(l), 'function' == typeof y ? y() : void 0
-    }), T = function () {
-      var e, t;
-      return e = l.querySelector('.st-email').value, t = n.href, n.isValidEmail(e) ? (n.send(n.API + '/v1.0/email-list-builder/collect', {
-        email: e,
-        property: S
-      }), n.log({event: 'elb-submit', url: t}), n.emit('email-submitted', {
-        email: e,
-        property: S,
-        url: t
-      }), n.storage.set('st_email_list_builder_collected', !0), n.addClass(d, 'st-hidden'), setTimeout(function () {
-        return v = '<div class="st-headline">' + B + '</div>', d.innerHTML = v, n.removeClass(d, 'st-hidden'), setTimeout(function () {
-          return n.close(l), 'function' == typeof R ? R(e) : void 0
-        }, 2500)
-      }, 500)) : void(r.innerHTML = 'Please enter a valid email')
-    }, 'show' === a ? w() : (setTimeout(function () {
-      return w()
-    }, 6e4), O = null, E = function (e) {
-      return n.addEventListener(document, 'scroll', function (e) {
-        return O && clearTimeout(O), O = setTimeout(function () {
-          if (n.getScrollDepth() > 60) return n.removeEventListener(document, 'scroll', E), w()
-        }, 1e3)
-      })
-    }, n.addEventListener(document, 'scroll', E))
-  }
-}).call(this);
-(function () {
   var e;
   e = window.__sharethis__, e.loader['gdpr-compliance-tool'] = function (n) {
     var o, s, r, a, c, l, t, i;
@@ -1109,54 +987,6 @@ __stdos__.cookie = {
         if (null != (e = t.response) ? e.is_eu : void 0) return __cmp('showConsentTool')
       }
     }(this), t.send()), e.js('https://c.sharethis.mgr.consensu.org/v1.0/cmp/cmp.js')
-  }
-}).call(this);
-(function () {
-  var a;
-  a = window.__sharethis__, a.loader['google-analytics'] = function (a) {
-    var e, n;
-    if (null == a && (a = {}), a.enabled && a.ga_id) return window.GoogleAnalyticsObject = 'ga', window.ga = window.ga || function () {
-      return (window.ga.q = window.ga.q || []).push(arguments)
-    }, window.ga.l = 1 * new Date, n = document.createElement('script'), e = document.getElementsByTagName('script')[0], n.async = 1, n.src = 'https://www.google-analytics.com/analytics.js', e.parentNode.insertBefore(n, e), ga('create', a.ga_id, 'auto'), ga('send', 'pageview')
-  }
-}).call(this);
-(function () {
-  var e;
-  e = window.__sharethis__, e.loader['image-share-buttons'] = function (t) {
-    var n, i, o, s, r, l, u, d, a, c, f, g, m, p, h, v, b, y, w, x, E, L;
-    if (null == t && (t = {}), t.enabled) {
-      for (s = t.alignment, r = t.container, m = t.onLoad, v = t.padding, g = t.networks, b = t.radius, w = t.size, x = t.spacing, null == g && (g = ['facebook', 'twitter', 'pinterest', 'email']), null == v && (v = 10), null == b && (b = 0), null == w && (w = 40), null == x && (x = 8), 'string' == typeof r && (r = document.getElementById(r)), y = e.newElement(r), n = y.$el, a = y.id, e.addClass(n, 'st-image-share-buttons'), n.style.position = 'absolute', c = e.load('inline-share-buttons', {
-        alignment: s,
-        id: a,
-        enabled: !0,
-        networks: g,
-        padding: v,
-        radius: b,
-        size: w,
-        spacing: x,
-        onLoad: function () {
-          return e.addClass(n, 'st-hidden'), 'function' == typeof m ? m() : void 0
-        }
-      }), L = null, p = !1, h = !1, l = function (t) {
-        var i, o, s, l;
-        if (o = e.position(t, r), i = o.left, l = o.top, s = t.getAttribute('src'), n.style.width = t.width + 'px', !(t.height < 200 || t.width < 200)) return L && clearTimeout(L), L = setTimeout(function () {
-          return c.modify('image', s), n.style.left = e.px(i), n.style.top = e.px(l), n.style.padding = e.px(x), n.style.boxSizing = 'border-box', e.removeClass(n, 'st-hide'), e.removeClass(n, 'st-hidden'), c.resize()
-        }, 10)
-      }, u = function (t) {
-        return L && clearTimeout(L), L = setTimeout(function () {
-          if (!h && !p) return e.addClass(n, 'st-hide'), 'function' == typeof t ? t() : void 0
-        }, 10)
-      }, o = document.querySelectorAll('img'), d = 0, f = o.length; d < f; d++) i = o[d], E = i.getAttribute('src'), /\.(gif|jpg|jpeg|png)$/i.test(E) && (e.addEventListener(i, 'mouseenter', function () {
-        return h = !0, l(this)
-      }), e.addEventListener(i, 'mouseleave', function () {
-        return h = !1, u()
-      }));
-      return e.addEventListener(n, 'mouseenter', function () {
-        return p = !0
-      }), e.addEventListener(n, 'mouseleave', function () {
-        return p = !1, u()
-      })
-    }
   }
 }).call(this);
 (function () {
@@ -1233,48 +1063,6 @@ __stdos__.cookie = {
   }
 }).call(this);
 (function () {
-  var n, t;
-  t = window.__sharethis__, t.loader['inline-reaction-buttons'] = function (t) {
-    var e, s, i, a, l;
-    if (null == t && (t = {}), t.enabled) {
-      if (t.id) return e = document.getElementById(t.id), n(e, t);
-      for (s = document.querySelectorAll('.sharethis-inline-reaction-buttons'), l = [], i = 0, a = s.length; i < a; i++) e = s[i], l.push(n(e, t));
-      return l
-    }
-  }, n = function (n, e) {
-    var s, i, a, l, o, r, c, d, u, p, h, g, b, f, v, y, x, w, A, R, S, T, N, C, O, _, m, I, k;
-    for (i = e.alignment, h = e.id, y = e.language, w = e.min_count, S = e.padding, N = e.reactions, I = e.size, k = e.url, c = e.fade_in, A = e.onLoad, R = e.onReact, r = n.getAttribute('data-url'), null == c && (c = !0), null == w && (w = 0), null == N && (N = function () {
-      var n;
-      n = [];
-      for (f in t.REACTIONS) n.push(f);
-      return n
-    }()), null == S && (S = 10), null == y && (y = 'en'), null == I && (I = 48), null == k && (k = r || t.href), m = t.storage.get('st_reaction_' + k), null == h && (h = 'st-' + t.uid()), n.setAttribute('id', h), t.addClass(n, ['st-inline-reaction-buttons', 'st-' + i, m ? 'st-reacted' : void 0, c ? 'st-hidden' : void 0, y ? 'st-has-labels' : void 0, 'en' !== y ? 'st-lang-' + y : void 0]), l = '#' + h + ' {\n  ' + t.FONT_FAMILY + '\n  ' + t.TRANSITION('opacity') + '\n  direction: ltr;\n  display: block;\n  opacity: 1;\n  text-align: ' + i + ';\n}\n#' + h + '.st-hidden {\n  opacity: ' + (c ? 0 : 1) + ';\n}\n#' + h + ' .st-btn {\n  ' + t.BORDER_BOX + '\n  ' + t.TRANSITION() + '\n  display: inline-block;\n  font-size: ' + t.px(I / 2) + ';\n  line-height: ' + t.px(I / 2) + ';\n  opacity: 1;\n  padding: ' + t.px(S) + ';\n  position: relative;\n  text-align: center;\n  vertical-align: top;\n  white-space: nowrap;\n  width: ' + t.px(I + 2 * S) + ';\n}\n#' + h + ' .st-btn > svg {\n  display: block;\n  height: ' + t.px(I) + ';\n  margin: auto;\n  width: ' + t.px(I) + ';\n  vertical-align: top;\n}\n#' + h + ' .st-btn > span {\n  ' + t.TRANSITION('font-size') + ';\n  color: #555;\n  font-size: 14px;\n  font-weight: 400;\n  letter-spacing: 0.5px;\n  vertical-align: top;\n}\n#' + h + ' .st-btn .st-count.st-grow {\n  font-size: 18px;\n}\n#' + h + ' .st-btn.st-hide-count .st-count {\n  opacity: 0;\n}\n#' + h + ' .st-btn .st-text {\n  display: none;\n  font-weight: bold;\n  line-height: 12px;\n  white-space: normal;\n  word-break: break-all;\n}\n#' + h + '.st-justified {\n  display: flex;\n  text-align: center;\n}\n#' + h + '.st-justified .st-btn {\n  ' + t.FLEX + '\n}\n#' + h + ' .st-btn.st-selected {\n  ' + t.TRANSFORM('scale(1.2)') + '\n}\n#' + h + '.st-reacted .st-btn:not(.st-selected) {\n  filter: grayscale(100%);\n}', d = '#' + h + ':not(.st-reacted) .st-btn:hover {\n  ' + t.TRANSFORM('scale(1.2)') + '\n  cursor: pointer;\n}\n#' + h + ':not(.st-reacted) .st-btn:active {\n  ' + t.TRANSFORM('scale(1.4)') + '\n}\n#' + h + '.st-has-labels:not(.st-reacted) .st-btn:hover .st-count {\n  display: none;\n}\n#' + h + '.st-has-labels:not(.st-reacted) .st-btn:hover .st-text {\n  display: block;\n}\n#' + h + '.st-has-labels:not(.st-reacted) .st-btn:hover span {\n  font-size: 10px;\n}', o = l, t.mobile || (o += d), t.css(o), u = '', g = p = 0, x = N.length; p < x; g = ++p) T = N[g], t.REACTIONS[T] && (b = t.REACTIONS[T], a = ['st-btn'], T === m && a.push('st-selected'), 0 === g && a.push('st-first'), g === N.length - 1 && a.push('st-last'), v = y ? '<span class="st-text">\n  ' + (null != (C = t.i18n[b.label]) && null != (O = C[y]) ? O.toUpperCase() : void 0) + '\n</span>' : '', u += '<div class=\'' + a.join(' ') + '\' data-reaction=\'' + T + '\'>\n  <svg\n    xmlns="http://www.w3.org/2000/svg"\n    viewBox="0 0 64 64"\n    enable-background="new 0 0 64 64"\n  >\n    ' + b.icon + '\n  </svg>\n  <span class="st-count"></span>\n  ' + v + '\n</div>');
-    return n.innerHTML = u, s = n.querySelectorAll('.st-btn'), _ = function () {
-      var e, i, a, l, o, r, c;
-      if (a = n.offsetWidth, i = function () {
-        var n, t, e, i;
-        for (i = 0, t = 0, e = s.length; t < e; t++) n = s[t], i += I + 2 * S;
-        return i
-      }, i() > a) {
-        for (c = a / i(), r = [], l = 0, o = s.length; l < o; l++) e = s[l], e.style.padding = t.px(S * c), e.style.width = t.px((I + 2 * S) * c), e.querySelector('svg').style.width = t.px(I * c), r.push(e.querySelector('svg').style.height = t.px(I * c));
-        return r
-      }
-    }, t.loadCounts({type: 'reactions', url: k}, function (e) {
-      var i, a, l, o, r, d, u, p, h, g;
-      for (l = 0, d = s.length; l < d; l++) i = s[l], T = i.getAttribute('data-reaction'), p = e[T] || {}, r = p.label, g = p.value, null != (h = i.querySelector('.st-count')) && (h.innerHTML = r), r && g >= w ? t.removeClass(i, 'st-hide-count') : t.addClass(i, 'st-hide-count');
-      for (_(), c && t.removeClass(n, 'st-hidden'), t.addEventListener(window, 'resize', _), a = function (e) {
-        return t.addEventListener(e, 'click', function () {
-          if (!t.hasClass(n, 'st-reacted')) return T = e.getAttribute('data-reaction'), t.addClass(n, 'st-reacted'), t.addClass(e, 'st-selected'), t.react({
-            reaction: T,
-            url: k
-          }), t.inc(e.querySelector('.st-count')), t.storage.set('st_reaction_' + k, T), 'function' == typeof R ? R(T) : void 0
-        })
-      }, o = 0, u = s.length; o < u; o++) i = s[o], a(i);
-      return 'function' == typeof A ? A() : void 0
-    })
-  }
-}).call(this);
-(function () {
   var t, n, e = [].indexOf || function (t) {
     for (var n = 0, e = this.length; n < e; n++) if (n in this && this[n] === t) return n;
     return -1
@@ -1341,18 +1129,6 @@ __stdos__.cookie = {
       modify: N,
       resize: $
     }
-  }
-}).call(this);
-
-(function () {
-  var n;
-  n = window.__sharethis__, n.loader['promo-bar'] = function (e) {
-    var i, t, l, o, s, a, r, d, p, c, g, h, x, f, u;
-    if (null == e && (e = {}), e.enabled) return l = e.color, a = e.delay, f = e.show_mobile, u = e.slide_in, c = e.label, g = e.link, h = e.message, null == l && (l = n.COLORS.sharethis), null == a && (a = 1e3), null == h && (h = 'Welcome!'), null == f && (f = !0), null == u && (u = !0), x = n.newElement(), t = x.$el, p = x.id, n.addClass(t, 'st-promo-bar'), u && n.addClass(t, 'st-hidden'), o = '#' + p + ' {\n  ' + n.BORDER_BOX + '\n  ' + n.FONT_FAMILY + ';\n  ' + n.TRANSITION() + '\n  background: ' + l + ';\n  color: #fff;\n  display: block;\n  font-size: 16px;\n  height: 50px;\n  line-height: 50px;\n  left: 0;\n  position: fixed;\n  right: 0;\n  text-align: center;\n  top: 0;\n  z-index: 9999;\n}\n#' + p + '.st-hidden {\n  top: -50px;\n}\n#' + p + ' > div {\n  display: inline-block;\n  vertical-align: top;\n}\n#' + p + ' > div.st-msg {\n  margin-right: 12px;\n}\n#' + p + ' > div.st-btn > a {\n  ' + n.BORDER_BOX + '\n  ' + n.BORDER_RADIUS(4) + '\n  ' + n.BOX_SHADOW('0 2px 4px rgba(0, 0, 0, 0.25)') + '\n  background: #fff;\n  color: ' + l + ';\n  display: block;\n  font-size: 13px;\n  height: 30px;\n  line-height: 14px;\n  margin: 8px;\n  padding: 8px 16px;\n  text-decoration: none;\n}\n#' + p + ' > div.st-close {\n  ' + n.TRANSITION() + '\n  ' + n.BORDER_RADIUS(50) + '\n  ' + n.BORDER_BOX + '\n  border: 2px solid transparent;\n  cursor: pointer;\n  font-size: 24px;\n  line-height: 0;\n  margin: 12px;\n  opacity: .6;\n  padding: 0;\n  position: absolute;\n  right: 0;\n  top: 0;\n}', r = '#' + p + ' > div.st-close:hover {\n  ' + n.TRANSFORM('rotate(180deg)') + '\n  margin: 6px;\n  padding: 6px;\n  border: 2px solid #fff;\n  opacity: 1;\n}', s = o, n.mobile || (s += r), n.css(s), d = '<div class="st-msg">' + h + '</div>\n' + (g && c ? '<div class="st-btn">\n  <a href="' + g + '" target="_blank">' + c + '</a>\n</div>' : '') + '\n<div class="st-close">\n  ' + n.ICONS.close + '\n</div>', t.innerHTML = d, i = t.querySelector('.st-close'), n.addEventListener(i, 'click', function () {
-      return n.close(t)
-    }), setTimeout(function () {
-      return n.removeClass(t, 'st-hidden')
-    }, 10)
   }
 }).call(this);
 
