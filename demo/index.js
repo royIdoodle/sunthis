@@ -2,7 +2,7 @@
 // dependencies
 import core from "./sharethis.ugly"
 import React from "react";
-import ReactDOM from "react-dom";
+import {render} from "react-dom";
 import jsonp from "jsonp";
 
 const load = function(component, product) {
@@ -33,19 +33,6 @@ const load = function(component, product) {
   // load sharethis.js
 //  TODO 核心代码引入
   window.onShareThisLoaded();
-  return
-  if (document.getElementById('sharethis-js')) {
-    if (window.__sharethis__) {
-      window.onShareThisLoaded();
-    }
-  } else {
-    const script = document.createElement("script");
-    script.setAttribute('id', 'sharethis-js');
-    script.src = "https://zens-pic.oss-cn-shenzhen.aliyuncs.com/static/space/sharethis.test.js" +
-      "?product=" + product + "&source=reactjs";
-    script.async = true;
-    document.body.appendChild(script);
-  }
 }
 
 class InlineShareButtons extends React.Component {
@@ -55,7 +42,7 @@ class InlineShareButtons extends React.Component {
   }
   
   componentDidMount() {
-    load(this, 'inline-share-buttons');
+    // load(this, 'inline-share-buttons');
   }
   
   render () {
@@ -70,7 +57,7 @@ class InlineShareButtons extends React.Component {
 class StickyShareButtons extends React.Component {
   constructor(props) {
     super(props);
-    this.buttons = React.createRef();
+    this.buttons = createRef();
   }
   
   componentDidMount() {
@@ -203,6 +190,10 @@ jsonp(`http://www.sunthis.com/api/${id}.js`, {
   let settings
   if (err) {
     settings = DEFAULT
+    console.log('>>>>>')
+    // settings.id = 'sharethis-' + Date.now();
+    // window.__sharethis__.load('sticky-share-buttons', settings);
+    console.log('>>>>>')
   } else if (data){
     settings = data
   }
@@ -218,7 +209,7 @@ jsonp(`http://www.sunthis.com/api/${id}.js`, {
       el = temp
     }
   }
-  ReactDOM.render((<App
+  render((<App
     language={settings.language}
     labels={settings.labels}
     padding={settings.padding}

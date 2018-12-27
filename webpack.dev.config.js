@@ -7,7 +7,7 @@ const webpack = require('webpack');
 
 // configuration
 var configuration = {
-  mode: 'development',
+  mode: 'production',
   entry: './demo/index.js',
   module: {
     rules: [
