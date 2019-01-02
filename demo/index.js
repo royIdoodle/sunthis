@@ -1,10 +1,11 @@
 
 // dependencies
-import core from "./sharethis.js"
+import core from "./st.js"
 import React from "react";
 // import {Component, createRef} from 'react';
 import {render} from "react-dom";
 import jsonp from "jsonp";
+
 const load = function(component, product) {
   // load config
   let config = component.props.config || {enabled: true};
