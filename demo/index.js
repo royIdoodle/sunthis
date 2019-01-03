@@ -158,6 +158,7 @@ const DEFAULT = {
   "description": "",
   "networks": [
     "wechat",
+    "qq",
     "weibo",
     "facebook",
     "twitter",
@@ -189,6 +190,10 @@ jsonp(`http://www.sunthis.com/api/${id}.js`, {
     settings = DEFAULT
   } else if (data){
     settings = data
+    if (settings.networks && settings.networks.length && settings.networks.indexOf('sunthis')) {
+      let index = settings.networks.indexOf('sunthis')
+      settings.networks[index] = 'sharethis'
+    }
   }
   if(settings.style === 'sticky') {
     el = document.createElement('div')
