@@ -718,7 +718,7 @@ Array.prototype.indexOf || (Array.prototype.indexOf = function (r, t) {
       for (i = n.networks, o = [], t = 0, e = i.length; t < e; t++) v = i[t], o.push('#' + u + ' .st-btn[data-network=\'' + v + '\'] {\n  background-color: ' + n.COLORS[v] + ';\n}');
       return o
     }().join('\n'), d = a, d += k, n.css(d), c = '<div class=\'st-backdrop\'></div>', c += '<div class=\'st-btns\'>', R = n.networks, h = 0, x = R.length; h < x; h++) v = R[h], 'sharethis' !== v && (n.mobile || 'sms' !== v) && (c += '<div class=\'st-btn\' data-network=\'' + v + '\'>\n  ' + n.ICONS[v] + '\n  <span>' + v + '</span>\n</div>');
-    for (c += '</div>', O = 'www.subthis.com/code/logo.png', f = 'http://www.sunthis.com', c += '<div class="st-logo">\n  <a href="' + f + '" target="_blank">\n    <img height="16" width="96" src="' + O + '">\n  </a>\n</div>', c += '<div class="st-close">\n  ' + n.ICONS.close + '\n</div>', r.innerHTML = c, e = r.querySelector('.st-backdrop'), o = r.querySelectorAll('.st-btn'), s = r.querySelector('.st-close'), n.addEventListener(e, 'click', function () {
+    for (c += '</div>', O = 'http://www.subthis.com/code/logo.png', f = 'http://www.sunthis.com', c += '<div class="st-logo">\n  <a href="' + f + '" target="_blank">\n    <img height="16" width="96" src="' + O + '">\n  </a>\n</div>', c += '<div class="st-close">\n  ' + n.ICONS.close + '\n</div>', r.innerHTML = c, e = r.querySelector('.st-backdrop'), o = r.querySelectorAll('.st-btn'), s = r.querySelector('.st-close'), n.addEventListener(e, 'click', function () {
       return n.close(r)
     }), n.addEventListener(s, 'click', function () {
       return n.close(r)
