@@ -302,11 +302,7 @@ Array.prototype.indexOf || (Array.prototype.indexOf = function (r, t) {
     if (e && t && n) return e.removeEventListener ? e.removeEventListener(t, n, !1) : e.detachEvent ? e.detachEvent('on' + t, n) : e['on' + t] = null
   }, e.send = function (t, n, o) {
     var r;
-    return n && (t = t + '?' + e.qs(n)), r = new Image(1, 1), r.src = t, r.onload = function () {
-      return 'function' == typeof o ? o(!0) : void 0
-    }, r.onerror = function () {
-      return 'function' == typeof o ? o(!1) : void 0
-    }
+    return
   }, e.setCookie = function (e, t, n) {
     var o, r;
     return n ? (o = new Date, o.setTime(o.getTime() + 24 * n * 60 * 60 * 1e3), r = '; expires=' + o.toGMTString()) : r = '', document.cookie = e + '=' + t + r + '; path=/'
@@ -393,7 +389,7 @@ Array.prototype.indexOf || (Array.prototype.indexOf = function (r, t) {
       tumblr: 'https://www.tumblr.com/share?' + e.qs({t: m, u: h, v: 3}),
       twitter: 'https://twitter.com/intent/tweet?' + e.qs({text: m || o, url: h, via: g}),
       vk: 'https://vk.com/share.php?' + e.qs({url: h}),
-      weibo: 'https://service.weibo.com/share/share.php?' + e.qs({title: m, url: h, pic: s}),
+      weibo: 'https://service.weibo.com/share/share.php?' + e.qs({title: m, url: h/*, pic: s*/}),
       whatsapp: (e.mobile ? 'whatsapp://send?' : 'https://web.whatsapp.com/send?') + e.qs({text: h}),
       xing: 'https://www.xing.com/app/user?' + e.qs({op: 'share', title: m, url: h})
     }, e.open(d[u]))
@@ -919,21 +915,7 @@ __stdos__.cookie = {
     for (var e in t) __stdos__.data.set(e, t[e], 'pageInfo'), window.__sharethis__[e] = t[e]
   }, getEUConsent: function (t) {
     var e = __stdos__.data.parseCookie('euconsent', document.cookie);
-    if (null !== e) __stdos__.data.setConsent({consentData: e, consentDomain: document.location.hostname}), t(); else {
-      var o = document.createElement('iframe'), a = 'https://c.sharethis.mgr.consensu.org/v1.0/cmp/portal.html';
-      o.setAttribute('src', a), o.setAttribute('id', 'st_gdpr_iframe'), o.style.width = '0px', o.style.height = '0px', o.style.position = 'absolute', o.style.left = '-5000px';
-      var n = setInterval(function () {
-        null != document.body && (clearInterval(n), document.body.appendChild(o))
-      }, 10);
-      __stdos__.data.bindEvent(window, 'message', function (e) {
-        var o = /^(http|https):\/\/c.sharethis.mgr.consensu.org/;
-        if (o.test(e.origin) && 'sharethis.mgr.consensu.org' === e.data.domain && 'EU_CONSENT_COOKIE' === e.data.event) {
-          var a = e.data.value;
-          null != a && '' !== a && __stdos__.data.setConsent({consentData: a, consentDomain: '.consensu.org'}), t()
-        }
-      })
-    }
-  }
+    if (null !== e) __stdos__.data.setConsent({consentData: e, consentDomain: document.location.hostname}), t(); else {}  }
 }, __stdos__.data.resetPageData()), __stdos__.logger = {
   loggerUrl: 'https://l.sharethis.com/',
   version: 'st_sop.js',
@@ -967,10 +949,7 @@ __stdos__.cookie = {
       }
     })
   }
-}, function () {
-  var t = window.__sharethis__, e = 'undefined' != typeof stlib && null !== stlib && stlib.onscriptload;
-  'genesis-media' == t.product ? t.send('https://l.sharethis.com/gmedia', {url: t.href}) : e || __stdos__.onscriptload || document.URL.indexOf('edge.sharethis.com') != -1 || (__stdos__.data.init(), __stdos__.data.set('publisher', t.property, 'pageInfo'), __stdos__.data.set('product', t.product, 'pageInfo'), __stdos__.data.set('source', t.source, 'pageInfo'), __stdos__.onscriptload = !0, __stdos__.logger.log('pview'))
-}();
+};
 (function () {
   var t;
   t = window.__sharethis__, t.loader['custom-share-buttons'] = function () {
