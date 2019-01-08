@@ -251,7 +251,7 @@ Array.prototype.indexOf || (Array.prototype.indexOf = function (r, t) {
       return n(JSON.parse((null != e && null != (t = e.share) ? t.share_count : void 0) || 0))
     }, e.js('https://graph.facebook.com?' + e.qs({id: t, callback: 'window.__sharethis__.' + o}))
   }, e.log = function (t) {
-    return t.product = e.product, t.publisher = e.property, t.source = 'sharethis.js', t.ts = Date.now(), t.sop = !0, t.consentData = e.consentData, t.consentDomain = e.consentDomain, e.send('https://l.sharethis.com/log?' + e.qs(t))
+    return 0
   }, e.logGoogleAnalyticsEvent = function (e, t, n) {
     var o, r;
     return r = window.ga, o = window._gaq, r ? r('send', 'event', e, t, n) : o ? o.push(['_trackEvent', e, t, n]) : void 0
